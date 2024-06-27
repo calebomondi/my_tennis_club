@@ -1,0 +1,56 @@
+{%extends 'master.html'%}
+
+{%block title%}
+    Testing In Progress!
+{%endblock%}
+
+{%block content%}
+    <h5><a href="/">HOME</a></h5>
+    <!--Variables-->
+    {%with lastname='mokua'%}
+    <p>Hello {{fname}} {{lastname}}, welcome to hulu land!</p>
+    {%endwith%}
+
+    <!--if and for for a list & reversed keyword-->
+    {%for x in fruits reversed%}
+        {%if x == 'cherry' or x == 'kiwi'%}
+            <h3>I love {{x}}</h3>
+        {%else%}
+            <h3>{{x}}</h3>
+        {%endif%}
+    {%endfor%}
+    <br>
+
+    <!--empty keyword-->
+    <p>Iterating An Empty Object</p>
+    <ul>
+        {%for x in members%}
+            <li>{{x.fname}}</li> 
+        {%empty%}
+            <li>No Member Found</li>       
+        {%endfor%}
+    </ul>
+    <br>
+
+    <!--forloop variables-->
+    {%for x in fruits%}
+        {%if forloop.first%}
+            <h3>{{forloop.counter}} - {{x}} __ first</h3>
+        {%elif forloop.last%}
+            <h3>{{forloop.counter}} - {{x}} __ last</h3>
+        {%else%}
+            <h3>{{forloop.counter}} - {{x}}</h3>
+        {%endif%}
+    {%endfor%}
+    <br>
+
+    <!--Comments-->
+    <h3>Hello, below me there is a commented line. {# Do you see it. #}</h3>
+    {%comment "This is the comment description"%}
+        <h3>Am the line that has been commented!</h3>
+    {%endcomment%}
+    <br>
+
+    <!--include external file-->
+    {%include 'file_to_include.html' with fullname="John Doe" city="Santa Barbra"%}
+{%endblock%}

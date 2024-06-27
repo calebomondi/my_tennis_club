@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuerySets</title>
+    <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+</head>
+<body>
+    <!--LTE lookup-->
+    <p>age lte 22</p>
+    {%for x in myData%}
+        <h3>{{x.firstname}} {{x.lastname}}</h3>
+    {%endfor%}
+    <br>
+
+    <!--names startwith H-->
+    <p>Names that start with H</p>
+    {%for x in myData2%}
+        <h3>{{x.firstname}}</h3>
+    {%endfor%}
+
+    <!--cole or jude-->
+    <p>Find Cole or Jude</p>
+    {%for x in myData3%}
+        <h3>{{x.firstname}} {{x.lastname}}, aged  {{x.age}} from {{x.city}}</h3>
+    {%endfor%}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{%extends 'master.html'%}
+{%block title%}
+    Display Data From Model
+{%endblock%}
+
+{%block content%}
+    <div class="myCard">
+        <h2>Members</h2>
+        <ul>
+            {%for x in mymembers%}
+                <li onclick="window.location='details/{{x.id}}'">{{x.firstname}} {{x.lastname}}</li>
+            {%endfor%}
+        </ul>
+    </div>
+{%endblock%}
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Data From Model</title>
+</head>
+<body>
+    <ul>
+        {%for x in mymembers%}
+            <li><a href="details/{{x.id}}"> - {{x.firstname}} {{x.lastname}}</a></li>
+        {%endfor%}
+    </ul>
+</body>
+</html>
+-->
